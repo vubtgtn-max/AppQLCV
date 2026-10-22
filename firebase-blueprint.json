@@ -1,0 +1,153 @@
+{
+  "entities": {
+    "Dossier": {
+      "title": "Dossier",
+      "description": "Cadastral and land procedure records",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "code": { "type": "string" },
+        "owner": { "type": "string" },
+        "parcel": { "type": "string" },
+        "mapSheet": { "type": "string" },
+        "procedure": { "type": "string" },
+        "receivedDate": { "type": "string" },
+        "dueDate": { "type": "string" },
+        "handlerId": { "type": "string" },
+        "handlerName": { "type": "string" },
+        "status": { "type": "string" },
+        "storageFolder": { "type": "string" },
+        "storageIndex": { "type": "string" }
+      },
+      "required": ["id", "code", "owner", "procedure"]
+    },
+    "LandProject": {
+      "title": "LandProject",
+      "description": "Compensation, clearance, and site resettlement projects",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "code": { "type": "string" },
+        "name": { "type": "string" },
+        "location": { "type": "string" },
+        "status": { "type": "string" },
+        "totalHouseholds": { "type": "number" },
+        "totalArea": { "type": "number" }
+      },
+      "required": ["id", "code", "name"]
+    },
+    "PublicLandParcel": {
+      "title": "PublicLandParcel",
+      "description": "Public utility 5% land management",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "code": { "type": "string" },
+        "parcel": { "type": "string" },
+        "mapSheet": { "type": "string" },
+        "area": { "type": "number" },
+        "location": { "type": "string" },
+        "landStatus": { "type": "string" }
+      },
+      "required": ["id", "code", "parcel", "mapSheet"]
+    },
+    "LandViolationCase": {
+      "title": "LandViolationCase",
+      "description": "Construction and land order violations",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "code": { "type": "string" },
+        "violatorName": { "type": "string" },
+        "violationType": { "type": "string" },
+        "status": { "type": "string" },
+        "location": { "type": "string" }
+      },
+      "required": ["id", "code", "violatorName"]
+    },
+    "DisputeCase": {
+      "title": "DisputeCase",
+      "description": "Land boundary and dispute resolution cases",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "code": { "type": "string" },
+        "title": { "type": "string" },
+        "disputeType": { "type": "string" },
+        "status": { "type": "string" },
+        "location": { "type": "string" }
+      },
+      "required": ["id", "code", "title"]
+    },
+    "Task": {
+      "title": "Task",
+      "description": "Officer cadastral task assignments",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "code": { "type": "string" },
+        "name": { "type": "string" },
+        "assigneeId": { "type": "string" },
+        "dueDate": { "type": "string" },
+        "status": { "type": "string" }
+      },
+      "required": ["id", "code", "name"]
+    },
+    "User": {
+      "title": "User",
+      "description": "Officer user account",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "username": { "type": "string" },
+        "role": { "type": "string" },
+        "status": { "type": "string" }
+      },
+      "required": ["id", "name", "username"]
+    },
+    "SystemSnapshot": {
+      "title": "SystemSnapshot",
+      "description": "Unified persistent state snapshot",
+      "type": "object",
+      "properties": {
+        "version": { "type": "number" },
+        "updatedAt": { "type": "string" }
+      }
+    }
+  },
+  "firestore": {
+    "/dossiers/{dossierId}": {
+      "schema": { "$ref": "#/entities/Dossier" },
+      "description": "Individual land dossiers"
+    },
+    "/projects/{projectId}": {
+      "schema": { "$ref": "#/entities/LandProject" },
+      "description": "Individual clearance projects"
+    },
+    "/publicLands/{parcelId}": {
+      "schema": { "$ref": "#/entities/PublicLandParcel" },
+      "description": "5% public land parcels"
+    },
+    "/violations/{violationId}": {
+      "schema": { "$ref": "#/entities/LandViolationCase" },
+      "description": "Order violation cases"
+    },
+    "/disputes/{disputeId}": {
+      "schema": { "$ref": "#/entities/DisputeCase" },
+      "description": "Dispute cases"
+    },
+    "/tasks/{taskId}": {
+      "schema": { "$ref": "#/entities/Task" },
+      "description": "Tasks"
+    },
+    "/users/{userId}": {
+      "schema": { "$ref": "#/entities/User" },
+      "description": "Users"
+    },
+    "/system/{docId}": {
+      "schema": { "$ref": "#/entities/SystemSnapshot" },
+      "description": "System state"
+    }
+  }
+}

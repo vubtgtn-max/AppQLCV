@@ -1,0 +1,6 @@
+{
+  "name": "QLCV Đất đai - Điều hành công việc & Quản lý Đất đai",
+  "description": "Phiên bản 1.0 (v1.0) - Trung tâm điều hành công việc và quản lý đất đai cấp xã - UBND xã Lãnh Ngọc",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

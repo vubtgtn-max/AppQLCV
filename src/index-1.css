@@ -1,0 +1,199 @@
+@import "tailwindcss";
+
+@layer base {
+  html.text-size-sm {
+    font-size: 14.5px;
+  }
+  html.text-size-base {
+    font-size: 16px;
+  }
+  html.text-size-lg {
+    font-size: 17.5px;
+  }
+
+  body {
+    @apply antialiased text-slate-800 bg-gray-100;
+  }
+
+  .dark body {
+    @apply text-slate-100 bg-slate-950;
+  }
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(156, 163, 175, 0.4);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(156, 163, 175, 0.7);
+}
+
+/* Dark mode utility enhancements */
+.dark .bg-white {
+  background-color: #0f172a !important;
+}
+
+.dark .bg-gray-50,
+.dark .bg-gray-100 {
+  background-color: #0b1120 !important;
+}
+
+.dark .text-slate-900,
+.dark .text-slate-800,
+.dark .text-slate-700 {
+  color: #f1f5f9 !important;
+}
+
+.dark .text-slate-600,
+.dark .text-slate-500 {
+  color: #94a3b8 !important;
+}
+
+.dark .border-gray-200,
+.dark .border-gray-300,
+.dark .border-gray-100 {
+  border-color: #1e293b !important;
+}
+
+.dark .hover\:bg-gray-50:hover,
+.dark .hover\:bg-gray-100:hover,
+.dark .hover\:bg-gray-200:hover {
+  background-color: #1e293b !important;
+}
+
+.dark input,
+.dark select,
+.dark textarea {
+  background-color: #1e293b !important;
+  color: #f8fafc !important;
+  border-color: #334155 !important;
+}
+
+/* Responsive safety */
+* {
+  box-sizing: border-box;
+}
+
+/* Prevent unwanted horizontal overflow */
+body, html, #root {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+/* =========================================================================
+   VIETNAMESE ADMINISTRATIVE DOCUMENT TYPOGRAPHY (NGHỊ ĐỊNH 30/2020/NĐ-CP)
+   Standard: Times New Roman, Unicode UTF-8, exact pt font sizes
+   ========================================================================= */
+
+.admin-doc,
+.printable-document {
+  font-family: 'Times New Roman', 'Tinos', Times, serif !important;
+  color: #000000 !important;
+  background-color: #ffffff !important;
+  line-height: 1.35 !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.admin-doc * {
+  font-family: inherit !important;
+}
+
+.admin-doc table {
+  border-collapse: collapse !important;
+  width: 100% !important;
+}
+
+.admin-doc th,
+.admin-doc td {
+  border: 1px solid #000000 !important;
+  font-size: 11pt !important;
+  padding: 4px 6px !important;
+}
+
+/* Print Styles */
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 15mm 15mm 15mm 20mm;
+  }
+
+  html,
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+    font-family: 'Times New Roman', 'Tinos', Times, serif !important;
+    overflow: visible !important;
+    height: auto !important;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  #root {
+    overflow: visible !important;
+    max-width: none !important;
+    height: auto !important;
+  }
+
+  /* Hide app navigation, sidebars, buttons, headers, action bars */
+  .no-print,
+  button,
+  header,
+  nav,
+  aside,
+  .print\:hidden {
+    display: none !important;
+  }
+
+  /* Reset fixed modal overlay so it doesn't cover or darken print pages */
+  .fixed.inset-0 {
+    position: static !important;
+    background: transparent !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow: visible !important;
+    display: block !important;
+  }
+
+  .admin-doc,
+  .printable-document {
+    box-shadow: none !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 auto !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-height: auto !important;
+    background: transparent !important;
+    color: #000000 !important;
+  }
+
+  .admin-doc input,
+  .admin-doc textarea {
+    border: none !important;
+    background: transparent !important;
+    color: #000000 !important;
+    padding: 0 !important;
+    resize: none !important;
+    box-shadow: none !important;
+  }
+
+  .print-only {
+    display: block !important;
+  }
+}
